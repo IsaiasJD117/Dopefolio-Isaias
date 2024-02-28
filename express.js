@@ -1,12 +1,14 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const app = express();
+const cors = require('cors');
 const port = 3000;
 const xss = require('xss');
 require('dotenv').config();
 
 
-
+app.use(cors());
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.post('/send', async (req, res) => {

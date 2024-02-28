@@ -285,7 +285,7 @@
           </span>
         </h2>
         <div class="contact__form-container">
-          <form class="contact__form" action="#" method="post">
+          <form class="contact__form" action="/send" method="post">
             <div class="contact__form-field">
               <label class="contact__form-label" for="name">Name</label>
               <input
@@ -392,6 +392,37 @@
     </footer>
 
     <script src="./index.js"></script>
-    <script src="./express.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const form = document.querySelector('.contact__form');
+
+        form.addEventListener('submit', function(e) {
+          e.preventDefault(); // Prevent the default form submission
+
+          const formData = new FormData(form);
+          const object = {};
+          formData.forEach((value, key) => object[key] = value);
+          const json = JSON.stringify(object);
+
+          fetch('/send', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: json,
+          })
+          .then(response => response.text())
+          .then(result => {
+            alert('Email sent successfully');
+            // Reset the form or redirect the user
+            form.reset();
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to send email');
+          });
+        });
+      });
+    </script>
   </body>
 </html>
