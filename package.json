@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile:scss": "sass sass/main.scss css/style.css",
+    "compile:scss": "sass sass/:public/css/ --style=compressed",
     "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.css -o css/style.css",
     "compress:css": "sass css/style.css css/style.css --style=compressed",
     "start": "node express.js",
