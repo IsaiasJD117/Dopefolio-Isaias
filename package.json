@@ -9,7 +9,7 @@
     "compress:css": "sass css/style.css css/style.css --style=compressed",
     "start": "node express.js",
     "build": "npm-run-all compile:scss prefix:css compress:css"
-  },  
+  },
   "author": "",
   "license": "GPL-3.0",
   "devDependencies": {
@@ -21,8 +21,10 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.18.2",
-    "node": "^21.6.2",
     "nodemailer": "^6.9.10",
     "xss": "^1.0.14"
+  },
+  "engines": {
+    "node": "20.5"
   }
 }
