@@ -2,7 +2,7 @@
   "name": "dopefolio",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "compile:scss": "sass sass/:public/css/ --style=compressed",
     "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.css -o css/style.css",
